@@ -1,0 +1,37 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(10, 11);
+unsigned char a;
+unsigned char b[20];
+unsigned char i,r;
+void setup() {
+  // put your setup code here, to run once:
+  mySerial.begin(115200);
+  Serial.begin(115200);
+  Serial.println("Readly");
+ 
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ 
+ while (mySerial.available()) {
+      
+     for (int j=0;j<15;j++)
+     {
+      a=mySerial.read();
+       b[i]=a;  
+      //Serial.print(b[i]);     
+      //Serial.print(" ");
+      
+      if(j==5){
+      r=b[i]; 
+      int dist=r;
+      Serial.print("dist = ");
+      Serial.println(dist);
+      }
+     } 
+     Serial.print("\n");    
+  }    
+  
+}
